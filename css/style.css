@@ -1,0 +1,91 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	list-style: none;
+}
+
+body {
+	background: #465c8f url(../img/bg-image.jpg) repeat-x;
+	font-family: 'Arial', sans-serif;
+}
+
+#container {
+	width: 718px;
+	overflow: hidden;
+	margin: 40px auto;
+}
+
+h1 {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.thumbs li {
+	float: left;
+	margin-bottom: 30px;
+	margin-right: 9px;
+	margin-left: 35px;
+}
+
+.thumbs a {
+	display: block;
+	position: relative;
+	width: 85px;
+	height: 55px;
+	border: 4px solid transparent;
+	font: bold 12px/25px Arial, sans-serif;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px rgba(255,255,255,.25), inset 1px 1px 0px rgba(0,0,0,.15);
+}
+
+.thumbs img {
+	border: solid #333 4px;
+}
+
+ul.slides {
+	overflow: hidden;
+	clear: both;
+	border: #333 solid 4px;
+}
+
+.slides, .slides li, .slides a, .slides img {
+	width: 705px;
+	height: 350px;
+	position: relative;
+}
+
+.slides li {
+	position:absolute;
+	z-index: 50;
+}
+
+
+/*Animation for Slider*/
+@-webkit-keyframes 'slide'{
+	0%    {left: -500px;}
+	100%  {left: 0px;}
+}
+
+ul.slides li:target{
+	z-index: 100;
+	-webkit-animation-name: slide;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+}
+
+/* Not Target */
+@-webkit-keyframes 'noTarget'{
+	0%    {z-index: 75;}
+	100%  {z-index: 75;}
+}
+
+ul.slides li:not(:target){
+	-webkit-animation-name: noTarget;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+}
